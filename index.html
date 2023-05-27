@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="./pages/index.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mesto</title>
+</head>
+
+<body class="page">
+  <header class="header container">
+    <div class="header__logo"></div>
+    <div class="header__line"></div>
+  </header>
+  <main class="content container">
+    <div class="profile">
+      <div class="profile__avatar"></div>
+      <div class="profile__info">
+        <div class="profile__edit">
+          <h2 class="profile__name">Жак-Ив Кусто</h2>
+          <button class="profile__edit-button">
+            <img class="profile__edit-image" src="./img/edit.svg" alt="Аватар">
+          </button>
+        </div>
+        <p class="profile__about">Исследователь океана</p>
+      </div>
+      <button class="profile__add-button"></button>
+    </div>
+    <ul class="elements">
+      <li class="element">
+        <img class="element__image" src="./img/karachaevsk.jpg" alt="Карачаевск">
+        <div class="element__text">
+          <p class="element__name">Карачаевск</p>
+          <img class="element__heart" src="./img/heart.svg" alt="Сердечко">
+        </div>
+      </li>
+      <li class="element">
+        <img class="element__image" src="./img/elbrus.jpg" alt="Эльбрус">
+        <div class="element__text">
+          <p class="element__name">Гора Эльбрус</p>
+          <img class="element__heart" src="./img/heart.svg" alt="Сердечко">
+        </div>
+      </li>
+      <li class="element">
+        <img class="element__image" src="./img/dombai.jpg" alt="Домбай">
+        <div class="element__text">
+          <p class="element__name">Домбай</p>
+          <img class="element__heart" src="./img/heart.svg" alt="Сердечко">
+        </div>
+      </li>
+      <li class="element">
+        <img class="element__image" src="./img/baikal.jpg" alt="Байкал">
+        <div class="element__text">
+          <p class="element__name">Байкал</p>
+          <img class="element__heart" src="./img/heart.svg" alt="Сердечко">
+        </div>
+      </li>
+      <li class="element">
+        <img class="element__image" src="./img/karelia.jpg" alt="Карелия">
+        <div class="element__text">
+          <p class="element__name">Карелия</p>
+          <img class="element__heart" src="./img/heart.svg" alt="Сердечко">
+        </div>
+      </li>
+      <li class="element">
+        <img class="element__image" src="./img/karachaevo-cherkessia.jpg" alt="Карачаево-Черкессия">
+        <div class="element__text">
+          <p class="element__name">Карачаево-Черкессия</p>
+          <img class="element__heart" src="./img/heart.svg" alt="Сердечко">
+        </div>
+      </li>
+    </ul>
+    <div class="edit-form">
+      <div class="edit-form__form">
+        <h2 class="edit-form__title">Редактировать профиль</h2>
+        <input type="text" placeholder="Введите имя" value="lol" class="edit-form__input edit-form__input_name">
+        <input type="text" placeholder="Расскажите о себе" class="edit-form__input edit-form__input_about">
+        <button class="edit-form__submit-button" type="submit">Сохранить</button>
+        <div class="edit-form__close"></div>
+      </div>
+    </div>
+  </main>
+  <footer class="footer container">
+    <p class="copyright">&#169; 2020 Mesto Russia</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+
+</html>
