@@ -4,12 +4,12 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 30px;
-  min-height: 120px;
   padding: 40px 0 0 0;
 }
 
 @media screen and (max-width: 992px) {
   .profile {
+    flex-direction: column;
     justify-content: center;
     gap: 26px;
     padding: 42px 0 0 0;

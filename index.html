@@ -9,82 +9,81 @@
 </head>
 
 <body class="page">
-  <header class="header container">
+  <header class="header">
     <div class="header__logo"></div>
-    <div class="header__line"></div>
   </header>
   <main class="content container">
     <div class="profile">
-      <div class="profile__avatar"></div>
+      <button class="profile__avatar" type="button" aria-label="Аватар"></button>
       <div class="profile__info">
-        <div class="profile__edit">
-          <h2 class="profile__name">Жак-Ив Кусто</h2>
-          <button class="profile__edit-button">
-            <img class="profile__edit-image" src="./img/edit.svg" alt="Аватар">
-          </button>
-        </div>
+        <h1 class="profile__name">Жак-Ив Кусто</h1>
         <p class="profile__about">Исследователь океана</p>
+        <button class="profile__edit-button" type="button" aria-label="Редактировать профиль"></button>
       </div>
-      <button class="profile__add-button"></button>
+      <button class="profile__add-button" type="button" aria-label="Добавить карточку"></button>
     </div>
-    <ul class="elements">
-      <li class="element">
-        <img class="element__image" src="./img/karachaevsk.jpg" alt="Карачаевск">
-        <div class="element__text">
-          <p class="element__name">Карачаевск</p>
-          <img class="element__heart" src="./img/heart.svg" alt="Сердечко">
-        </div>
-      </li>
-      <li class="element">
-        <img class="element__image" src="./img/elbrus.jpg" alt="Эльбрус">
-        <div class="element__text">
-          <p class="element__name">Гора Эльбрус</p>
-          <img class="element__heart" src="./img/heart.svg" alt="Сердечко">
-        </div>
-      </li>
-      <li class="element">
-        <img class="element__image" src="./img/dombai.jpg" alt="Домбай">
-        <div class="element__text">
-          <p class="element__name">Домбай</p>
-          <img class="element__heart" src="./img/heart.svg" alt="Сердечко">
-        </div>
-      </li>
-      <li class="element">
-        <img class="element__image" src="./img/baikal.jpg" alt="Байкал">
-        <div class="element__text">
-          <p class="element__name">Байкал</p>
-          <img class="element__heart" src="./img/heart.svg" alt="Сердечко">
-        </div>
-      </li>
-      <li class="element">
-        <img class="element__image" src="./img/karelia.jpg" alt="Карелия">
-        <div class="element__text">
-          <p class="element__name">Карелия</p>
-          <img class="element__heart" src="./img/heart.svg" alt="Сердечко">
-        </div>
-      </li>
-      <li class="element">
-        <img class="element__image" src="./img/karachaevo-cherkessia.jpg" alt="Карачаево-Черкессия">
-        <div class="element__text">
-          <p class="element__name">Карачаево-Черкессия</p>
-          <img class="element__heart" src="./img/heart.svg" alt="Сердечко">
-        </div>
-      </li>
-    </ul>
-    <div class="edit-form">
-      <div class="edit-form__form">
-        <h2 class="edit-form__title">Редактировать профиль</h2>
-        <input type="text" placeholder="Введите имя" value="lol" class="edit-form__input edit-form__input_name">
-        <input type="text" placeholder="Расскажите о себе" class="edit-form__input edit-form__input_about">
-        <button class="edit-form__submit-button" type="submit">Сохранить</button>
-        <div class="edit-form__close"></div>
+    <section class="elements" aria-label="Карточки">
+      <ul class="elements-list">
+        <li class="element">
+          <img class="element__image" src="./img/karachaevsk.jpg" alt="Карачаевск">
+          <div class="element__text">
+            <h2 class="element__name">Карачаевск</h2>
+            <button class="element__heart-button" type="button" aria-label="Сердечко"></button>
+          </div>
+        </li>
+        <li class="element">
+          <img class="element__image" src="./img/elbrus.jpg" alt="Эльбрус">
+          <div class="element__text">
+            <h2 class="element__name">Гора Эльбрус</h2>
+            <button class="element__heart-button" type="button" aria-label="Сердечко"></button>
+          </div>
+        </li>
+        <li class="element">
+          <img class="element__image" src="./img/dombai.jpg" alt="Домбай">
+          <div class="element__text">
+            <h2 class="element__name">Домбай</h2>
+            <button class="element__heart-button" type="button" aria-label="Сердечко"></button>
+          </div>
+        </li>
+        <li class="element">
+          <img class="element__image" src="./img/baikal.jpg" alt="Байкал">
+          <div class="element__text">
+            <h2 class="element__name">Байкал</h2>
+            <button class="element__heart-button" type="button" aria-label="Сердечко"></button>
+          </div>
+        </li>
+        <li class="element">
+          <img class="element__image" src="./img/karelia.jpg" alt="Карелия">
+          <div class="element__text">
+            <h2 class="element__name">Карелия</h2>
+            <button class="element__heart-button" type="button" aria-label="Сердечко"></button>
+          </div>
+        </li>
+        <li class="element">
+          <img class="element__image" src="./img/karachaevo-cherkessia.jpg" alt="Карачаево-Черкессия">
+          <div class="element__text">
+            <h2 class="element__name">Карачаево-Черкессия</h2>
+            <button class="element__heart-button" type="button" aria-label="Сердечко"></button>
+          </div>
+        </li>
+      </ul>
+    </section>
+    <div class="popup">
+      <div class="popup__container">
+        <h2 class="popup__title">Редактировать профиль</h2>
+        <form class="popup__form" name="edit-profile">
+          <input type="text" placeholder="Введите имя" class="popup__input popup__input_type_name" name="edit-name">
+          <input type="text" placeholder="Расскажите о себе" class="popup__input popup__input_type_about" name="edit-about">
+          <button class="popup__submit-button" type="submit">Сохранить</button>
+        </form>
+        <button class="popup__close" type="button" aria-label="Закрыть окно"></button>
       </div>
     </div>
   </main>
   <footer class="footer container">
-    <p class="copyright">&#169; 2020 Mesto Russia</p>
+    <p class="footer__copyright">&#169; 2020 Mesto Russia</p>
   </footer>
-  <script src="script.js"></script>
+  <script src="./scripts/index.js"></script>
 </body>
 
 </html>
