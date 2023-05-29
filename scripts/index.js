@@ -9,13 +9,13 @@ let profileAbout = content.querySelector('.profile__about');
 let closeButton = content.querySelector('.popup__close');
 
 function editProfile() {
-  popup.classList.add('popup_visibility_true');
+  popup.classList.add('popup_opened_true');
   popupInputName.value = profileName.textContent;
   popupInputAbout.value = profileAbout.textContent;  
 }
 
 function closeEdit() {
-  popup.classList.remove('popup_visibility_true');
+  popup.classList.remove('popup_opened_true');
 } 
 
 function saveEdit(evt) {

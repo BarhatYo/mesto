@@ -8,10 +8,7 @@
   background-size: 10px;
   background-repeat: no-repeat;
   background-position: center;
-  position: absolute;
   padding: 0;
-  top: 15px;
-  right: -42px;
 }
 
 .profile__edit-button:hover {
@@ -23,7 +20,8 @@
     width: 18px;
     height: 18px;
     background-size: 7.5px;
-    top: 8px;
+    position: absolute;
+    bottom: 16px;
     right: -28px;
   }
 }
