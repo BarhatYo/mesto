@@ -4,3 +4,9 @@
   align-items: baseline;
   position: relative;
 }
+
+@media screen and (max-width: 992px) {
+  .profile__edit {
+    justify-content: center;
+  }
+}
