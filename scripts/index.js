@@ -96,7 +96,7 @@ function createCard(item) {
 
   cardName.textContent = item.name;
   cardImage.setAttribute('src', item.link);
-
+  cardImage.addEventListener('click', openPopupPicture);
 
   const trashCardButton = cardElement.querySelector('.element__trash')
   trashCardButton.addEventListener('click', function () {
