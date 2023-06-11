@@ -26,66 +26,58 @@
     </div>
     <section class="elements" aria-label="Карточки">
       <ul class="elements__list">
-        <li class="element">
-          <img class="element__image" src="./img/karachaevsk.jpg" alt="Карачаевск">
-          <div class="element__text">
-            <h2 class="element__name">Карачаевск</h2>
-            <button class="element__heart-button" type="button" aria-label="Сердечко"></button>
-          </div>
-        </li>
-        <li class="element">
-          <img class="element__image" src="./img/elbrus.jpg" alt="Эльбрус">
-          <div class="element__text">
-            <h2 class="element__name">Гора Эльбрус</h2>
-            <button class="element__heart-button" type="button" aria-label="Сердечко"></button>
-          </div>
-        </li>
-        <li class="element">
-          <img class="element__image" src="./img/dombai.jpg" alt="Домбай">
-          <div class="element__text">
-            <h2 class="element__name">Домбай</h2>
-            <button class="element__heart-button" type="button" aria-label="Сердечко"></button>
-          </div>
-        </li>
-        <li class="element">
-          <img class="element__image" src="./img/baikal.jpg" alt="Байкал">
-          <div class="element__text">
-            <h2 class="element__name">Байкал</h2>
-            <button class="element__heart-button" type="button" aria-label="Сердечко"></button>
-          </div>
-        </li>
-        <li class="element">
-          <img class="element__image" src="./img/karelia.jpg" alt="Карелия">
-          <div class="element__text">
-            <h2 class="element__name">Карелия</h2>
-            <button class="element__heart-button" type="button" aria-label="Сердечко"></button>
-          </div>
-        </li>
-        <li class="element">
-          <img class="element__image" src="./img/karachaevo-cherkessia.jpg" alt="Карачаево-Черкессия">
-          <div class="element__text">
-            <h2 class="element__name">Карачаево-Черкессия</h2>
-            <button class="element__heart-button" type="button" aria-label="Сердечко"></button>
-          </div>
-        </li>
+      
       </ul>
     </section>
-    <div class="popup">
+    <div class="popup popup_type_edit">
       <div class="popup__container">
         <h2 class="popup__title">Редактировать профиль</h2>
-        <form class="popup__form" name="edit-profile">
+        <form class="popup__form popup__form_type_edit" name="edit-profile">
           <input type="text" placeholder="Введите имя" class="popup__input popup__input_type_name" name="edit-name">
           <input type="text" placeholder="Расскажите о себе" class="popup__input popup__input_type_about"
             name="edit-about">
           <button class="popup__submit-button" type="submit">Сохранить</button>
         </form>
-        <button class="popup__close" type="button" aria-label="Закрыть окно"></button>
+        <button class="popup__close popup__close_type_edit" type="button" aria-label="Закрыть окно"></button>
+      </div>
+    </div>
+    <div class="popup popup_type_card">
+      <div class="popup__container">
+        <h2 class="popup__title">Новое место</h2>
+        <form class="popup__form popup__form_type_card" name="add-card">
+          <input type="text" placeholder="Название" class="popup__input popup__input_type_card-name" name="card-name">
+          <input type="text" placeholder="Ссылка на картинку" class="popup__input popup__input_type_image-url"
+            name="image-url">
+          <button class="popup__submit-button" type="submit">Создать</button>
+        </form>
+        <button class="popup__close popup__close_type_card" type="button" aria-label="Закрыть окно"></button>
+      </div>
+    </div>
+    <div class="popup popup_type_picture">
+      <div class="popup__picture-container">
+        <figure class="popup__picture">
+          <img class="popup__image" src="https://example.com/image.jpg" alt="Картинка места">
+          <figcaption class="popup__picture-caption"></figcaption>
+        </figure>
+        <button class="popup__close popup__close_type_picture" type="button" aria-label="Закрыть окно"></button>
       </div>
     </div>
   </main>
   <footer class="footer container">
     <p class="footer__copyright">&#169; 2020 Mesto Russia</p>
   </footer>
+
+  <template id="element-template">
+    <li class="element">
+      <img class="element__image">
+      <button class="element__trash" type="button" aria-label="Удалить элемент"></button>
+      <div class="element__text">
+        <h2 class="element__name"></h2>
+        <button class="element__heart-button" type="button" aria-label="Сердечко"></button>
+      </div>
+    </li>
+  </template>
+
   <script src="./scripts/index.js"></script>
 </body>
 
