@@ -26,7 +26,7 @@
     </div>
     <section class="elements" aria-label="Карточки">
       <ul class="elements__list">
-      
+
       </ul>
     </section>
     <div class="popup popup_type_edit">
@@ -69,7 +69,9 @@
 
   <template id="element-template">
     <li class="element">
-      <img class="element__image">
+      <div class="element__image-container"> <!-- Чтобы не схлопывалась высота картинки при некорректной ссылке на неё-->
+        <img class="element__image" alt="Картинка места">
+      </div>
       <button class="element__trash" type="button" aria-label="Удалить элемент"></button>
       <div class="element__text">
         <h2 class="element__name"></h2>
@@ -77,7 +79,7 @@
       </div>
     </li>
   </template>
-
+  <script src="./scripts/cards.js"></script>
   <script src="./scripts/index.js"></script>
 </body>
 
