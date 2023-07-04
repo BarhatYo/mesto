@@ -18,15 +18,7 @@ function openPopup(popup) {
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
-}
-
-function resetError (popup, firstInput, secondInput) {
-  const errorList = popup.querySelectorAll('.popup__input-error');
-  [...errorList].forEach(error => {
-    error.textContent = '';
-  });
-  firstInput.classList.remove('popup__input_type_error');
-  secondInput.classList.remove('popup__input_type_error');
+  document.removeEventListener('keydown', keyHandler);
 }
 
 function handlePopupEdit() {
@@ -35,7 +27,11 @@ function handlePopupEdit() {
   popupEditInputName.value = profileName.textContent;
   popupEditInputAbout.value = profileAbout.textContent;
   popupEditInputName.dispatchEvent(event);
-  resetError(popupEdit, popupEditInputName, popupEditInputAbout);
+  const inputList = popupEdit.querySelectorAll('.popup__input');
+  [...inputList].forEach(input => {
+    const errorElement = popupEdit.querySelector(`.${input.id}-error`);
+    hideError(input, errorElement, config);
+  })
 }
 
 function saveEdit(evt) {
@@ -78,7 +74,13 @@ function handlePopupCard() {
   openPopup(popupCard);
   popupCardInputName.value = '';
   popupCardInputImage.value = '';
-  resetError(popupCard, popupCardInputName, popupCardInputImage);
+  const popupCardSubmit = popupCard.querySelector('.popup__button');
+  toggleButtonState(popupCardSubmit, popupFormCard.checkValidity(), config);
+  const inputList = popupCard.querySelectorAll('.popup__input');
+  [...inputList].forEach(input => {
+    const errorElement = popupCard.querySelector(`.${input.id}-error`);
+    hideError(input, errorElement, config);
+  });
 }
 
 function createCard(item) {
@@ -158,3 +160,9 @@ function handlePopupPicture(event) {
 popupCloseButton.addEventListener('click', function () {
   closePopup(popupPicture);
 });
+
+popupPicture.addEventListener('click', (evt) => {
+  if (evt.target === popupPicture) {
+    closePopup(popupPicture);
+  }
+})
