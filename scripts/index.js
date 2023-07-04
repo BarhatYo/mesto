@@ -13,16 +13,29 @@ const closePopupEditButton = content.querySelector('.popup__close_type_edit');
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
+  document.addEventListener('keydown', keyHandler);
 }
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
 }
 
+function resetError (popup, firstInput, secondInput) {
+  const errorList = popup.querySelectorAll('.popup__input-error');
+  [...errorList].forEach(error => {
+    error.textContent = '';
+  });
+  firstInput.classList.remove('popup__input_type_error');
+  secondInput.classList.remove('popup__input_type_error');
+}
+
 function handlePopupEdit() {
+  const event = new Event('input');
   openPopup(popupEdit);
   popupEditInputName.value = profileName.textContent;
-  popupEditInputAbout.value = profileAbout.textContent; 
+  popupEditInputAbout.value = profileAbout.textContent;
+  popupEditInputName.dispatchEvent(event);
+  resetError(popupEdit, popupEditInputName, popupEditInputAbout);
 }
 
 function saveEdit(evt) {
@@ -32,12 +45,24 @@ function saveEdit(evt) {
   closePopup(popupEdit);
 }
 
+function keyHandler(evt) {
+  if (evt.key === 'Escape') {
+    closePopup(content.querySelector('.popup_opened'));
+  }
+}
+
 //Редактирование профиля - Слушатели
 editButton.addEventListener('click', handlePopupEdit);
 closePopupEditButton.addEventListener('click', function () {
   closePopup(popupEdit);
 });
 popupFormEdit.addEventListener('submit', saveEdit);
+
+popupEdit.addEventListener('click', (evt) => {
+  if (evt.target === popupEdit) {
+    closePopup(popupEdit);
+  }
+})
 
 //Добавление карточек
 const popupCard = content.querySelector('.popup_type_card');
@@ -53,11 +78,11 @@ function handlePopupCard() {
   openPopup(popupCard);
   popupCardInputName.value = '';
   popupCardInputImage.value = '';
+  resetError(popupCard, popupCardInputName, popupCardInputImage);
 }
 
 function createCard(item) {
   const cardElement = cardTemplate.cloneNode(true);
-
   const cardName = cardElement.querySelector('.element__name');
   const cardImage = cardElement.querySelector('.element__image');
   cardElement.querySelector('.element__heart-button').addEventListener('click', function(evt) {
@@ -104,6 +129,12 @@ closePopupCardButton.addEventListener('click', function () {
   closePopup(popupCard);
 });
 popupFormCard.addEventListener('submit', createNewCard);
+
+popupCard.addEventListener('click', (evt) => {
+  if (evt.target === popupCard) {
+    closePopup(popupCard);
+  }
+})
 
 //Попап картинки
 const cards = content.querySelectorAll('.element')
