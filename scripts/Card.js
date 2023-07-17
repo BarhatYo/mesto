@@ -1,11 +1,9 @@
-const content = document.querySelector('.content');
-const cardsContainer = content.querySelector('.elements__list');
-
 export class Card {
-  constructor(data, templateSelector) {
+  constructor(data, templateSelector, openCardPicturePopup) {
     this._name = data.name;
     this._link = data.link;
     this._templateSelector = templateSelector;
+    this._openCardPicturePopup = openCardPicturePopup;
   }
 
   _getTemplate() {
@@ -17,21 +15,15 @@ export class Card {
     return cardElement;
   }
   
-  _createCard() {
+  generateCard() {
+    this._element = this._getTemplate();
     const cardName = this._element.querySelector('.element__name');
     const cardImage = this._element.querySelector('.element__image');
     cardName.textContent = this._name;
     cardImage.setAttribute('alt', this._name);
     cardImage.setAttribute('src', this._link);
-
-    return this._element;
-  }
-
-  generateCard(place) {
-    this._element = this._getTemplate();
-    this._createCard();
     this._setEventListeners();
-    place === 'append' ? cardsContainer.append(this._element) : cardsContainer.prepend(this._element);
+    return this._element;
   }
 
   _setEventListeners() {
@@ -42,6 +34,10 @@ export class Card {
     //Слушатель корзины
     this._element.querySelector('.element__trash').addEventListener('click', () => {
       this._element.remove();
+    });
+    //Слушатель картинки
+    this._element.querySelector('.element__image').addEventListener('click', (evt) => {
+      this._openCardPicturePopup(evt);
     });
   }
 }

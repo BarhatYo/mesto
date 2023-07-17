@@ -13,7 +13,7 @@ export class FormValidator {
     errorElement.textContent = inputElement.validationMessage;
   }
   
-  hideError(inputElement, errorElement) {
+  _hideError(inputElement, errorElement) {
     inputElement.classList.remove(this._inputErrorClass);
     errorElement.textContent = '';
   }
@@ -24,7 +24,7 @@ export class FormValidator {
     if (!isInputValid) {
       this._showError(inputElement, errorElement);
     } else {
-      this.hideError(inputElement, errorElement);
+      this._hideError(inputElement, errorElement);
     }
   }
 
@@ -36,6 +36,14 @@ export class FormValidator {
       buttonElement.disabled = false;
       buttonElement.classList.remove(this._inactiveButtonClass);
     }
+  }
+
+  removeValidationError() {
+    const inputList = this._formElement.querySelectorAll(this._inputSelector);
+    [...inputList].forEach(input => {
+      const errorElement = this._formElement.querySelector(`.${input.id}-error`);
+      this._hideError(input, errorElement);
+    })
   }
 
   _setEventListener() {
