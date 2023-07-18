@@ -100,9 +100,8 @@ function createNewCard(evt) {
     link: popupCardInputImage.value
   };
 
-  const newCard = new Card(popupCardInputObject, '#element-template', openCardPicturePopup);
-  const cardElement = newCard.generateCard()
-  cardsContainer.prepend(cardElement);
+  const newCard = createCard(popupCardInputObject);
+  cardsContainer.prepend(newCard);
 
   closePopup(popupCard);
 }
