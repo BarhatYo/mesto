@@ -3,7 +3,6 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="./pages/index.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mesto</title>
 </head>
@@ -34,11 +33,11 @@
         <h2 class="popup__title">Редактировать профиль</h2>
         <form class="popup__form popup__form_type_edit" name="edit-profile" novalidate>
           <input type="text" placeholder="Введите имя" class="popup__input popup__input_type_name"
-            id="name" name="name" minlength="2" maxlength="40" required>
-          <span class="popup__input-error name-error"></span>
+            id="edit-name" name="name" minlength="2" maxlength="40" required>
+          <span class="popup__input-error edit-name-error"></span>
           <input type="text" placeholder="Расскажите о себе" class="popup__input popup__input_type_about"
-            id="about" name="about" minlength="2" maxlength="200" required>
-          <span class="popup__input-error about-error"></span>
+            id="edit-about" name="about" minlength="2" maxlength="200" required>
+          <span class="popup__input-error edit-about-error"></span>
           <button class="popup__button" type="submit">Сохранить</button>
         </form>
         <button class="popup__close popup__close_type_edit" type="button" aria-label="Закрыть окно"></button>
@@ -49,11 +48,11 @@
         <h2 class="popup__title">Новое место</h2>
         <form class="popup__form popup__form_type_card" name="add-card" novalidate>
           <input type="text" placeholder="Название" class="popup__input popup__input_type_card-name"
-            id="name" name="name" minlength="2" maxlength="30" required>
-          <span class="popup__input-error name-error"></span>
+            id="card-name" name="name" minlength="2" maxlength="30" required>
+          <span class="popup__input-error card-name-error"></span>
           <input type="url" placeholder="Ссылка на картинку" class="popup__input popup__input_type_image-url"
-            id="link" name="link" required>
-          <span class="popup__input-error link-error"></span>
+            id="card-link" name="link" required>
+          <span class="popup__input-error card-link-error"></span>
           <button class="popup__button" type="submit">Создать</button>
         </form>
         <button class="popup__close popup__close_type_card" type="button" aria-label="Закрыть окно"></button>
@@ -88,7 +87,6 @@
       </div>
     </li>
   </template>
-  <script type="module" src="./pages/index.js" defer></script>
 </body>
 
 </html>
