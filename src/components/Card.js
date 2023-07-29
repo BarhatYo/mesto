@@ -26,18 +26,26 @@ export default class Card {
     return this._element;
   }
 
+  _likeToggle(evt) {
+    evt.target.classList.toggle('element__heart-button_active');
+  }
+
+  _removeCard() {
+    this._element.remove();
+  }
+
   _setEventListeners() {
     //Слушатель лайка
     this._element.querySelector('.element__heart-button').addEventListener('click', (evt) => {
-      evt.target.classList.toggle('element__heart-button_active')
+      this._likeToggle(evt);
     });
     //Слушатель корзины
     this._element.querySelector('.element__trash').addEventListener('click', () => {
-      this._element.remove();
+      this._removeCard();
     });
     //Слушатель картинки
-    this._element.querySelector('.element__image').addEventListener('click', (evt) => {
-      this._handleCardClick(evt);
+    this._element.querySelector('.element__image').addEventListener('click', () => {
+      this._handleCardClick(this._element);
     });
   }
 }

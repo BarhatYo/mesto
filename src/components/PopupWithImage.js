@@ -3,18 +3,17 @@ import Popup from "./Popup.js";
 import {
   popupCaption,
   popupImage
-} from "../utils/constants.js";
+} from "../pages/index.js";
 
 export default class PopupWithImage extends Popup {
   constructor(popupSelector, popupCloseButton) {
     super(popupSelector, popupCloseButton)
   }
 
-  open(event) {
+  open(element) {
     super.open();
-    const card = event.target.closest('.element');
-    const image = card.querySelector('.element__image');
-    const caption = card.querySelector('.element__name');
+    const image = element.querySelector('.element__image');
+    const caption = element.querySelector('.element__name');
 
     popupImage.alt = caption.textContent;
     popupImage.src = image.src;
