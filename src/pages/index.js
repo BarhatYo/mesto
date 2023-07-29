@@ -55,8 +55,8 @@ function createNewCardInstance(item) {
 }
 
 //Обработчик для попапа картинки карточки
-function handleCardClick(element) {
-  popupPictureInstance.open(element);
+function handleCardClick(userInfoData) {
+  popupPictureInstance.open(userInfoData);
   popupPictureInstance.setEventListeners();
 }
 
