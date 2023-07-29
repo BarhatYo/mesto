@@ -64,6 +64,7 @@ function handleCardClick(element) {
 const popupWithCardForm = new PopupWithForm(popupCard, closePopupCardButton, popupFormCard,
   { formSubmit: (data) => {
     const newCard = createNewCardInstance(data).generateCard();
+    popupWithCardForm.close();
 
     cardList.addItem(newCard, "prepend");
   }});
@@ -79,6 +80,7 @@ popupWithCardForm.setEventListeners();
 const popupWithEditForm = new PopupWithForm(popupEdit, closePopupEditButton, popupFormEdit,
   { formSubmit: (data) => {
     userInfoInstance.setUserInfo(data);
+    popupWithEditForm.close();
   }});
 
 editButton.addEventListener('click', () => {
