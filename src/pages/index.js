@@ -55,9 +55,8 @@ function createNewCardInstance(item) {
 }
 
 //Обработчик для попапа картинки карточки
-function handleCardClick(userInfoData) {
-  popupPictureInstance.open(userInfoData);
-  popupPictureInstance.setEventListeners();
+function handleCardClick(pictureName, pictureLink) {
+  popupPictureInstance.open(pictureName, pictureLink);
 }
 
 //Инстанс попапа карточки
@@ -101,6 +100,7 @@ const userInfoInstance = new UserInfo(profileName, profileAbout);
 
 //Инстанс попапа с картинкой
 const popupPictureInstance = new PopupWithImage(popupPicture, popupCloseButton);
+popupPictureInstance.setEventListeners();
 
 //Создаем экземпляры валидации для обеих форм
 const editProfileFormValidatorInstance = new FormValidator(config, popupEdit);

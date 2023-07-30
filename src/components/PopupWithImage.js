@@ -10,14 +10,11 @@ export default class PopupWithImage extends Popup {
     super(popupSelector, popupCloseButton)
   }
 
-  open(element) {
+  open(name, link) {
     super.open();
-    const image = element.querySelector('.element__image');
-    const caption = element.querySelector('.element__name');
-
-    popupImage.alt = caption.textContent;
-    popupImage.src = image.src;
-    popupCaption.textContent = caption.textContent;
+    popupImage.alt = name;
+    popupImage.src = link;
+    popupCaption.textContent = name;
   }
 }
 

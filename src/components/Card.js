@@ -32,7 +32,9 @@ export default class Card {
 
   _removeCard() {
     this._element.remove();
+    this._element = null;
   }
+  
 
   _setEventListeners() {
     //Слушатель лайка
@@ -45,7 +47,7 @@ export default class Card {
     });
     //Слушатель картинки
     this._element.querySelector('.element__image').addEventListener('click', () => {
-      this._handleCardClick(this._element);
+      this._handleCardClick(this._name, this._link);
     });
   }
 }
