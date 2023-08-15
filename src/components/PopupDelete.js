@@ -1,10 +1,11 @@
 import Popup from "./Popup.js";
 
 export default class PopupDelete extends Popup {
-  constructor(popupSelector, popupCloseButton, popupDeleteButton) {
+  constructor(popupSelector, popupCloseButton, popupDeleteButton, popupFormDelete) {
     super(popupSelector, popupCloseButton);
     this._popupDeleteButton = popupDeleteButton;
-  }
+    this._popupFormDelete = popupFormDelete;
+  } 
 
   open(card) {
     super.open();
@@ -14,16 +15,10 @@ export default class PopupDelete extends Popup {
   setEventListeners() {
     super.setEventListeners();
 
-    this._popupDeleteButton.addEventListener('click', () => {
+    this._popupFormDelete.addEventListener('submit', (evt) => {
+      evt.preventDefault();
       this._card._removeCard(this._card);
       this.close();
-    })
-
-    document.addEventListener('keydown', (evt) => {
-      if (evt.key === 'Enter' && this._popupSelector.classList.contains('popup_opened')) {
-        this._card._removeCard(this._card);
-        this.close();
-      }
     })
   }  
 }

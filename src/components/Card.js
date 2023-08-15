@@ -75,9 +75,6 @@ export default class Card {
     if (this._isOwner === true) {
       this._element.querySelector('.element__trash').addEventListener('click', () => this._popupDeleteInstance.open(this))
     }
-    // if (this._isOwner === true) {
-    //   this._element.querySelector('.element__trash').addEventListener('click', () => this._removeCard(this))
-    // }
     //Слушатель картинки
     this._element.querySelector('.element__image').addEventListener('click', () => {
       this._handleCardClick(this._name, this._link);

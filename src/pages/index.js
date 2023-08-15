@@ -40,12 +40,12 @@ const popupCloseButton = content.querySelector('.popup__close_type_picture');
 const popupDelete = content.querySelector('.popup_type_delete');
 const closePopupDeleteButton = content.querySelector('.popup__close_type_delete');
 const popupDeleteButton = content.querySelector('.popup__delete-button');
+const popupFormDelete = content.querySelector('.popup__form_type_delete');
 
 //Селекторы для попапа смены аватара
 const popupAvatar = content.querySelector('.popup_type_avatar');
 const popupFormAvatar = content.querySelector('.popup__form_type_avatar');
 const closePopupAvatarButton = content.querySelector('.popup__close_type_avatar');
-const popupAvatarInput = content.querySelector('.popup__input_type_avatar-url');
 const profileAvatarEdit = content.querySelector('.profile__avatar-container');
 const profileAvatar = content.querySelector('.profile__avatar');
 
@@ -100,7 +100,7 @@ function createNewCardInstance(item) {
   const newCardInstance = new Card(item, userId, '#element-template', popupDeleteInstance, handleCardClick, {
     removeCard: (cardInstance) => {
       api.removeCardApi(cardInstance.getId())
-        .then(cardInstance.remove())
+        .then(() => cardInstance.remove())
         .catch(err => console.log(err))
     },
     changeLike: (cardInstance) => {
@@ -118,7 +118,8 @@ let userId = null;
 api.getAllInfoApi()
   .then(([cards, user]) => {
     userId = user._id;
-    cardList.renderElements(cards)
+    cardList.renderElements(cards);
+    userInfoInstance.setUserInfo(user)
   })
   .catch(err => console.log(err))
 
@@ -162,10 +163,6 @@ const popupWithEditForm = new PopupWithForm(popupEdit, closePopupEditButton, pop
       .finally(() => renderLoading(false, popupEdit, 'Сохранить'))
   }});
 
-
-api.getCurrentUserApi()
-  .then(res => userInfoInstance.setUserInfo(res))
-
 editButton.addEventListener('click', () => {
   popupWithEditForm.open();
   const event = new Event('input');
@@ -187,7 +184,7 @@ const popupPictureInstance = new PopupWithImage(popupPicture, popupCloseButton);
 popupPictureInstance.setEventListeners();
 
 //Инстанс попапа с подтверждением удаления
-const popupDeleteInstance = new PopupDelete(popupDelete, closePopupDeleteButton, popupDeleteButton);
+const popupDeleteInstance = new PopupDelete(popupDelete, closePopupDeleteButton, popupDeleteButton, popupFormDelete);
 popupDeleteInstance.setEventListeners();
 
 //Создаем экземпляры валидации для всех форм
