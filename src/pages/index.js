@@ -100,7 +100,10 @@ function createNewCardInstance(item) {
   const newCardInstance = new Card(item, userId, '#element-template', popupDeleteInstance, handleCardClick, {
     removeCard: (cardInstance) => {
       api.removeCardApi(cardInstance.getId())
-        .then(() => cardInstance.remove())
+        .then(() => {
+          cardInstance.remove();
+          popupDeleteInstance.close();
+        })
         .catch(err => console.log(err))
     },
     changeLike: (cardInstance) => {
